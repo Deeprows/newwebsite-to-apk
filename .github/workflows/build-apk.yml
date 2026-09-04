@@ -20,15 +20,29 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Make build script executable
-        run: chmod +x make.sh gradlew
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK packages
+        run: |
+          sdkmanager "platform-tools"
+          sdkmanager "platforms;android-33"
+          sdkmanager "build-tools;33.0.2"
+
+      - name: Make scripts executable
+        run: |
+          chmod +x make.sh
+          chmod +x gradlew
 
       - name: Build APK
         run: ./make.sh build
+
+      - name: Find APK
+        run: find . -name "*.apk" -type f -print
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: deeprows-sports-tv-apk
-          path: "*.apk"
+          path: "**/*.apk"
           if-no-files-found: error
