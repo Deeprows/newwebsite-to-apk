@@ -23,11 +23,31 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install Android SDK packages
+      - name: Install Android SDK
         run: |
           sdkmanager "platform-tools"
           sdkmanager "platforms;android-33"
           sdkmanager "build-tools;33.0.2"
+
+      - name: Prepare local Android SDK
+        run: |
+          mkdir -p cmdline-tools/latest
+
+          wget -q \
+            "https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip" \
+            -O /tmp/cmdline-tools.zip
+
+          unzip -q /tmp/cmdline-tools.zip -d /tmp/android-tools
+
+          cp -r /tmp/android-tools/cmdline-tools/* cmdline-tools/latest/
+
+          mkdir -p cmdline-tools/platform-tools
+          mkdir -p cmdline-tools/platforms
+          mkdir -p cmdline-tools/build-tools
+
+          cp -r "$ANDROID_HOME/platform-tools/"* cmdline-tools/platform-tools/
+          cp -r "$ANDROID_HOME/platforms/"* cmdline-tools/platforms/
+          cp -r "$ANDROID_HOME/build-tools/"* cmdline-tools/build-tools/
 
       - name: Make scripts executable
         run: |
