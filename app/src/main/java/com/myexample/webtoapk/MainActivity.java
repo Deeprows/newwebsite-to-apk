@@ -1,4 +1,4 @@
-package com.myexample.webtoapk;
+package com.deeprows.sportstv;
 
 import android.content.DialogInterface;
 import android.net.http.SslError;
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
     private GeolocationPermissions.Callback geoCallback;
     private String geoOrigin;
 
-    String mainURL = "https://github.com/Jipok";
+    String mainURL = "https://deeprowss.com";
     boolean requireDoubleBackToExit = true;
     boolean allowSubdomains = true;
 
@@ -349,9 +349,9 @@ public class MainActivity extends AppCompatActivity {
         };
         // Register the receiver with compatibility for different Android versions
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(unifiedPushEndpointReceiver, new IntentFilter("com.myexample.webtoapk.NEW_ENDPOINT"), RECEIVER_NOT_EXPORTED);
+            registerReceiver(unifiedPushEndpointReceiver, new IntentFilter("com.deeprows.sportstv.NEW_ENDPOINT"), RECEIVER_NOT_EXPORTED);
         } else {
-            registerReceiver(unifiedPushEndpointReceiver, new IntentFilter("com.myexample.webtoapk.NEW_ENDPOINT"));
+            registerReceiver(unifiedPushEndpointReceiver, new IntentFilter("com.deeprows.sportstv.NEW_ENDPOINT"));
         }
 
         if (edgeToEdge) {
