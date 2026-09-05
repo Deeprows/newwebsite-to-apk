@@ -1,4 +1,5 @@
-package com.myexample.webtoapk;
+package com.deeprows.webtoapk;
+import com.deeprows.sportstv.R;
 
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -37,20 +38,20 @@ import java.util.concurrent.Executors;
 
 public class MediaPlaybackService extends Service {
     public static final String NOTIFICATION_CHANNEL_ID = "web_app_notifications";
-    public static final String ACTION_UPDATE_METADATA = "com.myexample.webtoapk.UPDATE_METADATA";
-    public static final String ACTION_UPDATE_STATE = "com.myexample.webtoapk.UPDATE_STATE";
-    public static final String ACTION_SET_HANDLERS = "com.myexample.webtoapk.SET_HANDLERS";
-    public static final String ACTION_STOP_SERVICE = "com.myexample.webtoapk.STOP_SERVICE";
-    public static final String ACTION_UPDATE_POSITION = "com.myexample.webtoapk.UPDATE_POSITION";
+    public static final String ACTION_UPDATE_METADATA = "com.deeprows.webtoapk.UPDATE_METADATA";
+    public static final String ACTION_UPDATE_STATE = "com.deeprows.webtoapk.UPDATE_STATE";
+    public static final String ACTION_SET_HANDLERS = "com.deeprows.webtoapk.SET_HANDLERS";
+    public static final String ACTION_STOP_SERVICE = "com.deeprows.webtoapk.STOP_SERVICE";
+    public static final String ACTION_UPDATE_POSITION = "com.deeprows.webtoapk.UPDATE_POSITION";
 
     // Actions from notification buttons
-    public static final String ACTION_PLAY = "com.myexample.webtoapk.PLAY";
-    public static final String ACTION_PAUSE = "com.myexample.webtoapk.PAUSE";
-    public static final String ACTION_NEXT = "com.myexample.webtoapk.NEXT";
-    public static final String ACTION_PREVIOUS = "com.myexample.webtoapk.PREVIOUS";
+    public static final String ACTION_PLAY = "com.deeprows.webtoapk.PLAY";
+    public static final String ACTION_PAUSE = "com.deeprows.webtoapk.PAUSE";
+    public static final String ACTION_NEXT = "com.deeprows.webtoapk.NEXT";
+    public static final String ACTION_PREVIOUS = "com.deeprows.webtoapk.PREVIOUS";
 
     // Action for broadcasting to MainActivity
-    public static final String BROADCAST_MEDIA_ACTION = "com.myexample.webtoapk.BROADCAST_MEDIA_ACTION";
+    public static final String BROADCAST_MEDIA_ACTION = "com.deeprows.webtoapk.BROADCAST_MEDIA_ACTION";
     public static final String EXTRA_MEDIA_ACTION = "EXTRA_MEDIA_ACTION";
 
 

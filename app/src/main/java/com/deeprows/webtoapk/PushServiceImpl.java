@@ -1,4 +1,5 @@
-package com.myexample.webtoapk; 
+package com.deeprows.webtoapk; 
+import com.deeprows.sportstv.R;
 
 import android.content.Context;
 import android.content.Intent;
@@ -56,7 +57,7 @@ public class PushServiceImpl extends PushService {
             .apply();
 
         // Broadcast the new endpoint AND keys to the MainActivity
-        Intent intent = new Intent("com.myexample.webtoapk.NEW_ENDPOINT");
+        Intent intent = new Intent("com.deeprows.webtoapk.NEW_ENDPOINT");
         intent.putExtra("endpoint", endpointUrl);
         intent.putExtra("p256dh", p256dh);
         intent.putExtra("auth", auth);

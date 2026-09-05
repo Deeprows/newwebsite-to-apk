@@ -1,4 +1,5 @@
-package com.myexample.webtoapk;
+package com.deeprows.webtoapk;
+import com.deeprows.sportstv.R;
 
 import android.content.Context;
 import java.io.BufferedReader;

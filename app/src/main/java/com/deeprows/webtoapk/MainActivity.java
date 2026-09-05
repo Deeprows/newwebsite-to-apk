@@ -1,4 +1,5 @@
-package com.deeprows.sportstv;
+package com.deeprows.webtoapk;
+import com.deeprows.sportstv.R;
 
 import android.content.DialogInterface;
 import android.net.http.SslError;
@@ -114,11 +115,11 @@ public class MainActivity extends AppCompatActivity {
     boolean allowSubdomains = true;
 
     boolean enableExternalLinks = true;
-    boolean openExternalLinksInBrowser = true;
-    boolean confirmOpenInBrowser = true;
+    boolean openExternalLinksInBrowser = false;
+    boolean confirmOpenInBrowser = false;
 
-    boolean allowOpenMobileApp = false;
-    boolean confirmOpenExternalApp = true;
+    boolean allowOpenMobileApp = true;
+    boolean confirmOpenExternalApp = false;
 
     String cookies = "";
     String basicAuth = "";
@@ -142,8 +143,8 @@ public class MainActivity extends AppCompatActivity {
     boolean DebugWebView = false;
 
     boolean geolocationEnabled = false;
-    boolean cameraEnabled = false;
-    boolean microphoneEnabled = false;
+    boolean cameraEnabled = true;
+    boolean microphoneEnabled = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

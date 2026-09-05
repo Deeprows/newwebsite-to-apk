@@ -1,3 +1,15 @@
 *.iml
 .gradle
 ./app/build
+
+# Local build/generated files
+.gradle-cache/
+app/build/
+app/my-release-key.jks
+build-error.txt
+compile.log
+cmdline-tools/
+deeprows.apk
+full-build.log
+jvm/
+local.properties
