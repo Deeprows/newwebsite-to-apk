@@ -29,26 +29,6 @@ jobs:
           sdkmanager "platforms;android-33"
           sdkmanager "build-tools;33.0.2"
 
-      - name: Prepare local Android SDK
-        run: |
-          mkdir -p cmdline-tools/latest
-
-          wget -q \
-            "https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip" \
-            -O /tmp/cmdline-tools.zip
-
-          unzip -q /tmp/cmdline-tools.zip -d /tmp/android-tools
-
-          cp -r /tmp/android-tools/cmdline-tools/* cmdline-tools/latest/
-
-          mkdir -p cmdline-tools/platform-tools
-          mkdir -p cmdline-tools/platforms
-          mkdir -p cmdline-tools/build-tools
-
-          cp -r "$ANDROID_HOME/platform-tools/"* cmdline-tools/platform-tools/
-          cp -r "$ANDROID_HOME/platforms/"* cmdline-tools/platforms/
-          cp -r "$ANDROID_HOME/build-tools/"* cmdline-tools/build-tools/
-
       - name: Generate signing key
         run: |
           if [ ! -f app/my-release-key.jks ]; then
@@ -70,14 +50,17 @@ jobs:
           chmod +x gradlew
 
       - name: Build APK
-        run: ./make.sh build
+        run: |
+          ./make.sh build
 
-      - name: Find APK
-        run: find . -name "*.apk" -type f -print
+      - name: Verify APK
+        run: |
+          test -f deeprows.apk
+          ls -lh deeprows.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: deeprows-sports-tv-apk
-          path: "**/*.apk"
+          path: deeprows.apk
           if-no-files-found: error
