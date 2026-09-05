@@ -49,6 +49,21 @@ jobs:
           cp -r "$ANDROID_HOME/platforms/"* cmdline-tools/platforms/
           cp -r "$ANDROID_HOME/build-tools/"* cmdline-tools/build-tools/
 
+      - name: Generate signing key
+        run: |
+          if [ ! -f app/my-release-key.jks ]; then
+            keytool -genkeypair \
+              -v \
+              -keystore app/my-release-key.jks \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -alias my \
+              -storepass 123456 \
+              -keypass 123456 \
+              -dname "CN=Deeprows Sports TV, OU=Deeprows, O=Deeprows, L=Cairo, S=Cairo, C=EG"
+          fi
+
       - name: Make scripts executable
         run: |
           chmod +x make.sh
