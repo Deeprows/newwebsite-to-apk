@@ -25,9 +25,10 @@ jobs:
 
       - name: Install Android SDK
         run: |
+          yes | sdkmanager --licenses
           sdkmanager "platform-tools"
           sdkmanager "platforms;android-33"
-          sdkmanager "build-tools;33.0.2"
+          sdkmanager "build-tools;30.0.3"
 
       - name: Prepare local Android SDK for make.sh
         run: |
@@ -36,6 +37,7 @@ jobs:
           cp -r "$ANDROID_HOME/platform-tools" cmdline-tools/
           cp -r "$ANDROID_HOME/platforms" cmdline-tools/
           cp -r "$ANDROID_HOME/build-tools" cmdline-tools/
+          cp -r "$ANDROID_HOME/licenses" cmdline-tools/
 
           echo "sdk.dir=$GITHUB_WORKSPACE/cmdline-tools" > local.properties
 
